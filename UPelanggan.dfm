@@ -83,7 +83,7 @@ object F_Pelanggan: TF_Pelanggan
     Visible = False
     OnClick = BtnSimpanClick
   end
-  object ListView1: TListView
+  object ListView: TListView
     Left = 304
     Top = 32
     Width = 405

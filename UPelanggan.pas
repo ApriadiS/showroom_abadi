@@ -21,7 +21,7 @@ type
     BtnBatal: TButton;
     ZQuery: TZQuery;
     ZConnection: TZConnection;
-    ListView1: TListView;
+    ListView: TListView;
     EdtNama: TEdit;
     EdtAlamat: TEdit;
     EdtNoTelp: TEdit;
