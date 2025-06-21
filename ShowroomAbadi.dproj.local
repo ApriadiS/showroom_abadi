@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2025/03/16 20:34:38.000.905,=C:\Users\MSI A12VE\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/04/25 09:42:49.000.331,=C:\Users\MSI A12VE\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/04/26 11:18:39.000.813,=C:\Users\MSI A12VE\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/05/17 18:20:14.000.407,=C:\Users\MSI A12VE\Documents\Embarcadero\Studio\Projects\Unit6.pas</Transaction>
+    <Transaction>2025/06/19 22:41:47.000.212,=C:\Users\MSI A12VE\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/06/19 22:43:26.000.776,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\ShowroomAbadi.dproj=C:\Users\MSI A12VE\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2025/06/19 22:50:59.000.818,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_Login.pas</Transaction>
+    <Transaction>2025/06/19 22:51:00.000.358,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_Mobil.pas</Transaction>
+    <Transaction>2025/06/19 22:51:00.000.454,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_Pelanggan.pas</Transaction>
+    <Transaction>2025/06/19 22:52:10.000.551,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_Penjualan.pas</Transaction>
+    <Transaction>2025/06/19 22:52:16.000.614,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_Mobil.pas=</Transaction>
+    <Transaction>2025/06/19 22:52:16.000.624,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_Penjualan.pas=</Transaction>
+    <Transaction>2025/06/19 22:52:16.000.568,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_Login.pas=</Transaction>
+    <Transaction>2025/06/19 22:52:16.000.621,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_Pelanggan.pas=</Transaction>
+    <Transaction>2025/06/19 23:17:25.000.380,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas</Transaction>
+    <Transaction>2025/06/19 23:17:44.000.997,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_login.pas</Transaction>
+    <Transaction>2025/06/19 23:17:44.000.997,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.dfm=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_login.dfm</Transaction>
+    <Transaction>2025/06/19 23:18:58.000.346,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_login.dfm=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\ULogin.dfm</Transaction>
+    <Transaction>2025/06/19 23:18:58.000.346,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\U_login.pas=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\ULogin.pas</Transaction>
+    <Transaction>2025/06/19 23:22:01.000.562,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas</Transaction>
+    <Transaction>2025/06/19 23:22:07.000.512,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UMobil.pas</Transaction>
+    <Transaction>2025/06/19 23:22:07.000.512,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.dfm=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UMobil.dfm</Transaction>
+    <Transaction>2025/06/19 23:23:51.000.018,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas</Transaction>
+    <Transaction>2025/06/19 23:24:01.000.518,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPelanggan.pas</Transaction>
+    <Transaction>2025/06/19 23:24:01.000.518,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.dfm=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPelanggan.dfm</Transaction>
+    <Transaction>2025/06/19 23:25:31.000.615,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas</Transaction>
+    <Transaction>2025/06/19 23:25:47.000.430,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPlanggan.pas</Transaction>
+    <Transaction>2025/06/19 23:25:47.000.430,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.dfm=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPlanggan.dfm</Transaction>
+    <Transaction>2025/06/19 23:25:53.000.986,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPlanggan.dfm=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPenjualan.dfm</Transaction>
+    <Transaction>2025/06/19 23:25:53.000.986,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPlanggan.pas=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPenjualan.pas</Transaction>
+    <Transaction>2025/06/20 23:30:39.000.591,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UMobil.pas=</Transaction>
+    <Transaction>2025/06/20 23:30:39.000.602,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPelanggan.pas=</Transaction>
+    <Transaction>2025/06/20 23:30:39.000.602,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPenjualan.pas=</Transaction>
+    <Transaction>2025/06/20 23:31:18.000.866,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UMobil.pas</Transaction>
+    <Transaction>2025/06/20 23:34:46.000.903,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPelanggan.pas</Transaction>
+    <Transaction>2025/06/20 23:40:46.000.421,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPenjualan.pas</Transaction>
+    <Transaction>2025/06/21 00:57:22.000.146,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas</Transaction>
+    <Transaction>2025/06/21 00:57:32.000.918,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPenjualan.pas=</Transaction>
+    <Transaction>2025/06/21 01:03:11.000.123,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPenjualan.pas</Transaction>
+    <Transaction>2025/06/21 01:03:11.000.123,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.dfm=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPenjualan.dfm</Transaction>
+    <Transaction>2025/06/21 02:03:12.000.097,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPelanggan.pas=</Transaction>
+    <Transaction>2025/06/21 02:03:12.000.078,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UMobil.pas=</Transaction>
+    <Transaction>2025/06/21 02:15:43.000.914,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas</Transaction>
+    <Transaction>2025/06/21 02:16:26.000.080,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.dfm=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UhistoriPenjualan.dfm</Transaction>
+    <Transaction>2025/06/21 02:16:26.000.080,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UhistoriPenjualan.pas</Transaction>
+    <Transaction>2025/06/21 04:01:25.404,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UPelanggan.pas</Transaction>
+    <Transaction>2025/06/21 04:24:30.843,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas</Transaction>
+    <Transaction>2025/06/21 04:24:46.363,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UStock.pas=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas</Transaction>
+    <Transaction>2025/06/21 04:24:46.363,C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\UStock.dfm=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.dfm</Transaction>
+    <Transaction>2025/06/21 06:40:02.022,=C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Unit1.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="ULogin.pas"/>
+    <File Path="ULogin.dfm"/>
+    <File Path="UPenjualan.pas"/>
+    <File Path="UPenjualan.dfm"/>
+    <File Path="UHistoriPenjualan.pas"/>
+    <File Path="UHistoriPenjualan.dfm"/>
+    <File Path="UPelanggan.pas"/>
+    <File Path="UPelanggan.dfm"/>
+    <File Path="UStock.pas"/>
+    <File Path="UStock.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>
