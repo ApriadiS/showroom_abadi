@@ -73,6 +73,7 @@ object F_Penjualan: TF_Penjualan
     Width = 75
     Height = 25
     Caption = 'Jual'
+    Enabled = False
     TabOrder = 1
     OnClick = BtnJualClick
   end
@@ -111,6 +112,17 @@ object F_Penjualan: TF_Penjualan
     object MenUHistoriPenjualan: TMenuItem
       Caption = 'Histori Penjualan'
       OnClick = MenUHistoriPenjualanClick
+    end
+    object MenuReport: TMenuItem
+      Caption = 'Report'
+      object SubMenuReportStok: TMenuItem
+        Caption = 'Report Stok'
+        OnClick = MenuReportStockClick
+      end
+      object SubMenuReportPenjualan: TMenuItem
+        Caption = 'Report Penjualan'
+        OnClick = MenuReportPenjualanClick
+      end
     end
     object MenuLogout: TMenuItem
       Caption = 'Logout'

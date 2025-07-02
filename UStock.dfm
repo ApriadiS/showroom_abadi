@@ -152,7 +152,7 @@ object F_Stock: TF_Stock
     Caption = 'Keluar'
     TabOrder = 9
   end
-  object ListView1: TListView
+  object ListView: TListView
     Left = 8
     Top = 172
     Width = 905

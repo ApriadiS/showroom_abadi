@@ -6,7 +6,9 @@ uses
   UPenjualan in 'UPenjualan.pas' {F_Penjualan},
   UHistoriPenjualan in 'UHistoriPenjualan.pas' {F_Histori},
   UPelanggan in 'UPelanggan.pas' {F_Pelanggan},
-  UStock in 'UStock.pas' {F_Stock};
+  UStock in 'UStock.pas' {F_Stock},
+  UReportStock in 'UReportStock.pas' {F_ReportStock},
+  UReportPenjualan in 'UReportPenjualan.pas' {F_ReportPenjualan};
 
 {$R *.res}
 
@@ -18,5 +20,7 @@ begin
   Application.CreateForm(TF_Histori, F_Histori);
   Application.CreateForm(TF_Pelanggan, F_Pelanggan);
   Application.CreateForm(TF_Stock, F_Stock);
+  Application.CreateForm(TF_ReportStock, F_ReportStock);
+  Application.CreateForm(TF_ReportPenjualan, F_ReportPenjualan);
   Application.Run;
 end.

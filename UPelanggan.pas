@@ -35,12 +35,12 @@ type
     procedure BtnSimpanClick(Sender: TObject);
     procedure BtnBatalClick(Sender: TObject);
     procedure BtnKeluarClick(Sender: TObject);
-    procedure ListView1Click(Sender: TObject);
+    procedure ListViewClick(Sender: TObject);
   private
     Mode: string; // 'NONE', 'TAMBAH', 'UBAH', 'HAPUS'
     SelectedId: Integer;
     procedure LoadData;
-    procedure SetMode(AMode: string);
+    procedure SetMode(AMode: string); 
     procedure ClearEdit;
     procedure IsiEditDariListView;
     procedure EnableEdit(AEnable: Boolean);
@@ -64,7 +64,7 @@ begin
   BtnSimpan.OnClick := BtnSimpanClick;
   BtnBatal.OnClick := BtnBatalClick;
   BtnKeluar.OnClick := BtnKeluarClick;
-  ListView1.OnClick := ListView1Click;
+  ListView.OnClick := ListViewClick;
 
   if not ZConnection.Connected then
     ZConnection.Connected := True;
@@ -75,13 +75,13 @@ end;
 
 procedure TF_Pelanggan.LoadData;
 begin
-  ListView1.Items.Clear;
+  ListView.Items.Clear;
   ZQuery.Close;
   ZQuery.SQL.Text := 'SELECT * FROM pelanggan';
   ZQuery.Open;
   while not ZQuery.Eof do
   begin
-    with ListView1.Items.Add do
+    with ListView.Items.Add do
     begin
       Caption := ZQuery.FieldByName('nama_pelanggan').AsString;
       SubItems.Add(ZQuery.FieldByName('alamat').AsString);
@@ -99,8 +99,8 @@ begin
   if Mode = 'NONE' then
   begin
     BtnTambah.Enabled := True;
-    BtnUbah.Enabled := ListView1.Selected <> nil;
-    BtnHapus.Enabled := ListView1.Selected <> nil;
+    BtnUbah.Enabled := ListView.Selected <> nil;
+    BtnHapus.Enabled := ListView.Selected <> nil;
     BtnSimpan.Visible := False;
     BtnBatal.Enabled := False;
     EnableEdit(False);
@@ -137,17 +137,17 @@ end;
 
 procedure TF_Pelanggan.IsiEditDariListView;
 begin
-  if ListView1.Selected <> nil then
+  if ListView.Selected <> nil then
   begin
-    EdtNama.Text := ListView1.Selected.Caption;
-    EdtAlamat.Text := ListView1.Selected.SubItems[0];
-    EdtNoTelp.Text := ListView1.Selected.SubItems[1];
-    EdtEmail.Text := ListView1.Selected.SubItems[2];
-    SelectedId := Integer(ListView1.Selected.Data);
+    EdtNama.Text := ListView.Selected.Caption;
+    EdtAlamat.Text := ListView.Selected.SubItems[0];
+    EdtNoTelp.Text := ListView.Selected.SubItems[1];
+    EdtEmail.Text := ListView.Selected.SubItems[2];
+    SelectedId := Integer(ListView.Selected.Data);
   end;
 end;
 
-procedure TF_Pelanggan.ListView1Click(Sender: TObject);
+procedure TF_Pelanggan.ListViewClick(Sender: TObject);
 begin
   IsiEditDariListView;
   SetMode('NONE');
@@ -160,18 +160,18 @@ end;
 
 procedure TF_Pelanggan.BtnUbahClick(Sender: TObject);
 begin
-  if ListView1.Selected <> nil then
+  if ListView.Selected <> nil then
     SetMode('UBAH');
 end;
 
 procedure TF_Pelanggan.BtnHapusClick(Sender: TObject);
 begin
-  if (ListView1.Selected <> nil) and
+  if (ListView.Selected <> nil) and
      (MessageDlg('Yakin hapus data?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
   begin
     ZQuery.Close;
     ZQuery.SQL.Text := 'DELETE FROM pelanggan WHERE id_pelanggan = :id';
-    ZQuery.ParamByName('id').AsInteger := Integer(ListView1.Selected.Data);
+    ZQuery.ParamByName('id').AsInteger := Integer(ListView.Selected.Data);
     ZQuery.ExecSQL;
     LoadData;
     ClearEdit;

@@ -145,6 +145,14 @@
             <Form>F_Stock</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="UReportStock.pas">
+            <Form>F_ReportStock</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UReportPenjualan.pas">
+            <Form>F_ReportPenjualan</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

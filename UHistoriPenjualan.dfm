@@ -149,8 +149,8 @@ object F_Histori: TF_Histori
     LibraryLocation = 
       'C:\Users\MSI A12VE\Documents\GitHub\showroom_abadi\Win32\Debug\l' +
       'ibmysql.dll'
-    Left = 612
-    Top = 16
+    Left = 644
+    Top = 8
   end
   object ZQuery: TZQuery
     Connection = ZConnection

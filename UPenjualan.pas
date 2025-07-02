@@ -25,14 +25,20 @@ type
     CbPelanggan: TComboBox;
     LabelPelanggan: TLabel;
     MenUHistoriPenjualan: TMenuItem;
+    MenuReport: TMenuItem;
+    SubMenuReportStok: TMenuItem;
+    SubMenuReportPenjualan: TMenuItem;
     procedure CbMerkChange(Sender: TObject);
     procedure CbModelChange(Sender: TObject);
+    procedure CbPelangganChange(Sender: TObject);
     procedure BtnJualClick(Sender: TObject);
     procedure ListViewSelectItem(Sender: TObject; Item: TListItem;Selected: Boolean);
     procedure MenuHistoriPenjualanClick(Sender: TObject);
     procedure MenuPelangganClick(Sender: TObject);
     procedure MenuStockClick(Sender: TObject);
     procedure MenuLogoutClick(Sender: TObject);
+    procedure MenuReportStockClick(Sender: TObject);
+    procedure MenuReportPenjualanClick(Sender: TObject);
 
   private
     selectedIdMobil: Integer; // ID mobil yang dipilih
@@ -49,9 +55,31 @@ var
 implementation
 
 uses
-  UHistoriPenjualan, UPelanggan, UStock, ULogin;
+  UHistoriPenjualan, UPelanggan, UStock, ULogin, UReportPenjualan, UReportStock;
 
 {$R *.dfm}
+
+procedure TF_Penjualan.MenuReportStockClick(Sender: TObject);
+begin
+  F_ReportStock := TF_ReportStock.Create(Self);
+  try
+    // TQuickRep Preview
+    F_ReportStock.QuickRep.Preview;
+  finally
+    F_ReportStock.Free;
+  end;
+end;
+
+procedure TF_Penjualan.MenuReportPenjualanClick(Sender: TObject);
+begin
+  F_ReportPenjualan := TF_ReportPenjualan.Create(Self);
+  try
+    // TQuickRep Preview
+    F_ReportPenjualan.QuickRep.Preview;
+  finally
+    F_ReportPenjualan.Free;
+  end;
+end;
 
 procedure TF_Penjualan.MenuLogoutClick(Sender: TObject);
 begin
@@ -167,7 +195,15 @@ end;
 procedure TF_Penjualan.ListViewSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 begin
   // Jika mode adalah kasir, aktifkan BtnJual jika pelanggan sudah dipilih dan ada item yang dipilih
-  if (CbPelanggan.ItemIndex <> -1) and (ListView.Selected <> nil) then
+  if (CbMerk.ItemIndex <> -1) and (CbPelanggan.ItemIndex <> -1) and (ListView.Items.Count > 0) then
+    BtnJual.Enabled := True
+  else
+    BtnJual.Enabled := False;
+end;
+procedure TF_Penjualan.CbPelangganChange(Sender: TObject);
+begin
+  // Jika mode adalah kasir, aktifkan BtnJual jika pelanggan sudah dipilih dan ada item yang dipilih
+  if (CbMerk.ItemIndex <> -1) and (CbPelanggan.ItemIndex <> -1) and (ListView.Items.Count > 0) then
     BtnJual.Enabled := True
   else
     BtnJual.Enabled := False;
@@ -194,6 +230,7 @@ begin
 
   CbMerk.OnChange := CbMerkChange;
   CbModel.OnChange := CbModelChange;
+  CbPelanggan.OnChange := CbPelangganChange;
   BtnJual.OnClick := BtnJualClick;
   ListView.OnSelectItem := ListViewSelectItem;
   MenuHistoriPenjualan.OnClick := MenuHistoriPenjualanClick;
@@ -283,6 +320,10 @@ begin
     end;
     ZQuery.Next;
   end;
+  if (CbMerk.ItemIndex <> -1) and (CbPelanggan.ItemIndex <> -1) and (ListView.Items.Count > 0) then
+    BtnJual.Enabled := True
+  else
+    BtnJual.Enabled := False;
 end;
 
 procedure TF_Penjualan.CbModelChange(Sender: TObject);
@@ -317,3 +358,12 @@ begin
 end;
 
 end.
+
+0-Tanggal
+1-Pelanggan
+2-Mobil
+3-Tipe
+4-Warna
+5-Qty
+6-Harga
+7-Total

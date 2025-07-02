@@ -27,7 +27,7 @@ type
     BtnKeluar: TButton;
     ZQuery: TZQuery;
     ZConnection: TZConnection;
-    ListView1: TListView;
+    ListView: TListView;
     EdtMerk: TEdit;
     EdtModel: TEdit;
     EdtTahun: TEdit;
@@ -44,7 +44,7 @@ type
     procedure BtnSimpanClick(Sender: TObject);
     procedure BtnBatalClick(Sender: TObject);
     procedure BtnKeluarClick(Sender: TObject);
-    procedure ListView1Click(Sender: TObject);
+    procedure ListViewClick(Sender: TObject);
   private
     Mode: string; // 'NONE', 'TAMBAH', 'UBAH'
     SelectedId: Integer;
@@ -71,7 +71,7 @@ begin
   BtnSimpan.OnClick := BtnSimpanClick;
   BtnBatal.OnClick := BtnBatalClick;
   BtnKeluar.OnClick := BtnKeluarClick;
-  ListView1.OnClick := ListView1Click;
+  ListView.OnClick := ListViewClick;
 
   if not ZConnection.Connected then
     ZConnection.Connected := True;
@@ -84,13 +84,13 @@ procedure TF_Stock.LoadData;
 begin
   if not ZConnection.Connected then
     ZConnection.Connected := True;
-  ListView1.Items.Clear;
+  ListView.Items.Clear;
   ZQuery.Close;
   ZQuery.SQL.Text := 'SELECT * FROM mobil';
   ZQuery.Open;
   while not ZQuery.Eof do
   begin
-    with ListView1.Items.Add do
+    with ListView.Items.Add do
     begin
       Caption := ZQuery.FieldByName('merk').AsString;
       SubItems.Add(ZQuery.FieldByName('model').AsString);
@@ -113,8 +113,8 @@ begin
   if Mode = 'NONE' then
   begin
     BtnTambah.Enabled := True;
-    BtnUbah.Enabled := ListView1.Selected <> nil;
-    BtnHapus.Enabled := ListView1.Selected <> nil;
+    BtnUbah.Enabled := ListView.Selected <> nil;
+    BtnHapus.Enabled := ListView.Selected <> nil;
     BtnSimpan.Visible := False;
     BtnBatal.Enabled := False;
     EnableEdit(False);
@@ -161,22 +161,22 @@ end;
 
 procedure TF_Stock.IsiEditDariListView;
 begin
-  if ListView1.Selected <> nil then
+  if ListView.Selected <> nil then
   begin
-    EdtMerk.Text := ListView1.Selected.Caption;
-    EdtModel.Text := ListView1.Selected.SubItems[0];
-    EdtTahun.Text := ListView1.Selected.SubItems[1];
-    EdtWarna.Text := ListView1.Selected.SubItems[2];
-    EdtNoRangka.Text := ListView1.Selected.SubItems[3];
-    EdtNoMesin.Text := ListView1.Selected.SubItems[4];
-    EdtHargaBeli.Text := ListView1.Selected.SubItems[5];
-    EdtHargaJual.Text := ListView1.Selected.SubItems[6];
-    EdtStok.Text := ListView1.Selected.SubItems[7];
-    SelectedId := Integer(ListView1.Selected.Data);
+    EdtMerk.Text := ListView.Selected.Caption;
+    EdtModel.Text := ListView.Selected.SubItems[0];
+    EdtTahun.Text := ListView.Selected.SubItems[1];
+    EdtWarna.Text := ListView.Selected.SubItems[2];
+    EdtNoRangka.Text := ListView.Selected.SubItems[3];
+    EdtNoMesin.Text := ListView.Selected.SubItems[4];
+    EdtHargaBeli.Text := ListView.Selected.SubItems[5];
+    EdtHargaJual.Text := ListView.Selected.SubItems[6];
+    EdtStok.Text := ListView.Selected.SubItems[7];
+    SelectedId := Integer(ListView.Selected.Data);
   end;
 end;
 
-procedure TF_Stock.ListView1Click(Sender: TObject);
+procedure TF_Stock.ListViewClick(Sender: TObject);
 begin
   IsiEditDariListView;
   SetMode('NONE');
@@ -189,18 +189,24 @@ end;
 
 procedure TF_Stock.BtnUbahClick(Sender: TObject);
 begin
-  if ListView1.Selected <> nil then
+  if ListView.Selected <> nil then
     SetMode('UBAH');
 end;
 
 procedure TF_Stock.BtnHapusClick(Sender: TObject);
 begin
-  if (ListView1.Selected <> nil) and
+  if (ListView.Selected <> nil) and
      (MessageDlg('Yakin hapus data?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
   begin
+    // Hapus dulu data detail_penjualan yang terkait
+    ZQuery.Close;
+    ZQuery.SQL.Text := 'DELETE FROM detail_penjualan WHERE id_mobil = :id';
+    ZQuery.ParamByName('id').AsInteger := Integer(ListView.Selected.Data);
+    ZQuery.ExecSQL;
+    // Baru hapus data mobil
     ZQuery.Close;
     ZQuery.SQL.Text := 'DELETE FROM mobil WHERE id_mobil = :id';
-    ZQuery.ParamByName('id').AsInteger := Integer(ListView1.Selected.Data);
+    ZQuery.ParamByName('id').AsInteger := Integer(ListView.Selected.Data);
     ZQuery.ExecSQL;
     LoadData;
     ClearEdit;
@@ -209,6 +215,19 @@ begin
 end;
 
 procedure TF_Stock.BtnSimpanClick(Sender: TObject);
+  function CleanAngka(const S: string): string;
+  var
+    i: Integer;
+    ResultStr: string;
+    DecSep: Char;
+  begin
+    ResultStr := '';
+    DecSep := FormatSettings.DecimalSeparator;
+    for i := 1 to Length(S) do
+      if CharInSet(S[i], ['0'..'9']) or (S[i] = DecSep) then
+        ResultStr := ResultStr + S[i];
+    Result := ResultStr;
+  end;
 begin
   if (Trim(EdtMerk.Text) = '') or (Trim(EdtModel.Text) = '') or
      (Trim(EdtNoRangka.Text) = '') or (Trim(EdtNoMesin.Text) = '') then
@@ -228,8 +247,8 @@ begin
     ZQuery.ParamByName('warna').AsString := EdtWarna.Text;
     ZQuery.ParamByName('no_rangka').AsString := EdtNoRangka.Text;
     ZQuery.ParamByName('no_mesin').AsString := EdtNoMesin.Text;
-    ZQuery.ParamByName('harga_beli').AsFloat := StrToFloatDef(EdtHargaBeli.Text, 0);
-    ZQuery.ParamByName('harga_jual').AsFloat := StrToFloatDef(EdtHargaJual.Text, 0);
+    ZQuery.ParamByName('harga_beli').AsFloat := StrToFloatDef(CleanAngka(EdtHargaBeli.Text), 0);
+    ZQuery.ParamByName('harga_jual').AsFloat := StrToFloatDef(CleanAngka(EdtHargaJual.Text), 0);
     ZQuery.ParamByName('stok').AsInteger := StrToIntDef(EdtStok.Text, 0);
     ZQuery.ExecSQL;
   end
@@ -245,8 +264,8 @@ begin
     ZQuery.ParamByName('warna').AsString := EdtWarna.Text;
     ZQuery.ParamByName('no_rangka').AsString := EdtNoRangka.Text;
     ZQuery.ParamByName('no_mesin').AsString := EdtNoMesin.Text;
-    ZQuery.ParamByName('harga_beli').AsFloat := StrToFloatDef(EdtHargaBeli.Text, 0);
-    ZQuery.ParamByName('harga_jual').AsFloat := StrToFloatDef(EdtHargaJual.Text, 0);
+    ZQuery.ParamByName('harga_beli').AsFloat := StrToFloatDef(CleanAngka(EdtHargaBeli.Text), 0);
+    ZQuery.ParamByName('harga_jual').AsFloat := StrToFloatDef(CleanAngka(EdtHargaJual.Text), 0);
     ZQuery.ParamByName('stok').AsInteger := StrToIntDef(EdtStok.Text, 0);
     ZQuery.ParamByName('id').AsInteger := SelectedId;
     ZQuery.ExecSQL;
